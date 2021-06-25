@@ -7,7 +7,7 @@ const connection = () => {
 
     // Connecting to the database
     mongoose
-      .connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {
+      .connect(process.env.BASE_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
