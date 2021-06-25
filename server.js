@@ -4,6 +4,8 @@ const cors = require("cors");
 const connect = require('./config/database')
 const app = express();
 const router = require('./src/router/router');
+require('dotenv').config()
+
 
 
 
@@ -20,8 +22,8 @@ connect();
 // Base routes
 router(app);
 
-
+const port  = process.env.PORT || 4000;
 // listen for requests
-app.listen(3002, () => {
+app.listen(port, () => {
   console.log("Server is listening on port 3002");
 });
