@@ -31,9 +31,9 @@ exports.findAll = async (schema) => {
 };
 
 
-exports.findOne = async (schema, req) => {
+exports.findOne = async (schema, data) => {
   try {
-    return await schema.findOne({ email: req.email })
+    return await schema.findOne(data)
   } catch (err) {
     return err;
   }

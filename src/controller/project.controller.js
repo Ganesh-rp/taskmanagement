@@ -18,6 +18,10 @@ exports.getAllProject = async (req, res) => {
   res.status(project.statusCode).json(project);
 };
 
+exports.getProjectById = async (req, res) => {
+  const project = await projectService.getProjectById(req.params.id);
+  res.status(project.statusCode).json(project);
+};
 
 exports.deleteProject = async (req, res) => {
   const project = await projectService.deleteProject(req.params.id);

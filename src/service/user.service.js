@@ -13,7 +13,7 @@ exports.createUser = async (req) => {
 };
 
 exports.loginUser = async (req) => {
-  let loginUser = await dao.findOne(user, req)
+  let loginUser = await dao.findOne(user, {email: req.email})
   if(loginUser) {
     if(loginUser.password === req.password) {
       return response.success(loginUser)

@@ -26,6 +26,14 @@ exports.getAllProject = async () => {
   return response.success(result);
 };
 
+exports.getProjectById = async (id) => {
+  let result = await dao.findOne(project, {_id: id});
+  if (!result) {
+    return response.error();
+  }
+  return response.success(result);
+};
+
 exports.deleteProject = async (id) => {
   const body = { isDeleted: true };
   let result = await dao.findOneAndUpdate(project, id, body);
