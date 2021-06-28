@@ -14,12 +14,15 @@ exports.createUser = async (req) => {
 
 exports.loginUser = async (req) => {
   let loginUser = await dao.findOne(user, req)
-  if(loginUser.password === req.password) {
-    return response.success(loginUser)
+  if(loginUser) {
+    if(loginUser.password === req.password) {
+      return response.success(loginUser)
+    } else {
+      return response.error('invalid credendials')
+    }
   } else {
-    return response.error('invalid credendials')
+    return response.error('Email is not registered')
   }
-  
 }
 
 

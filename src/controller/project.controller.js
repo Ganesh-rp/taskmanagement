@@ -13,7 +13,7 @@ exports.updateProject = async (req, res) => {
 };
 
 
-exports.getAllProject = async () => {
+exports.getAllProject = async (req, res) => {
   const project = await projectService.getAllProject();
   res.status(project.statusCode).json(project);
 };
