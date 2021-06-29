@@ -1,7 +1,7 @@
 exports.error = (message) => {
   return {
     success: false,
-    statusCode: 500,
+    statusCode: 200,
     data: null,
     errorMessage: message,
   };
